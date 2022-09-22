@@ -1,0 +1,28 @@
+From 74d515532272ed7017a45ebd0a1400183383292d Mon Sep 17 00:00:00 2001
+From: Samuel Thibault <sthibault@debian.org>
+Date: Sat, 8 Oct 2016 20:38:00 +0200
+Subject: [PATCH] Include sys/prctl.h only on Linux
+
+p8-platform inconditionally includes <sys/prctl.h>, which is a
+linux-only header. This fixes build on Debian/kFreeBSD and
+Debian/Hurd.
+---
+ src/posix/os-types.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/posix/os-types.h b/src/posix/os-types.h
+index 7fb832c..cc4de17 100644
+--- a/src/posix/os-types.h
++++ b/src/posix/os-types.h
+@@ -36,7 +36,7 @@
+ #include <string.h>
+ #include <errno.h>
+ #include <sys/time.h>
+-#if !defined(__APPLE__) && !defined(__FreeBSD__) && !defined(__NetBSD__)
++#ifdef __linux__
+ #include <sys/prctl.h>
+ #endif
+ #include <pthread.h>
+-- 
+2.1.4
+

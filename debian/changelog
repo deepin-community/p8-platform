@@ -1,0 +1,183 @@
+p8-platform (2.1.0.1+dfsg1-3) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/copyright: Use https protocol in Format field
+  * d/rules: Remove trailing whitespaces
+
+  [ Helmut Grohne ]
+  * Drop the g++ dependency added for the GCC5 transition (Closes: #942198)
+
+  [ Balint Reczey ]
+  * debian/gitlab-ci.yml: Add simple Salsa CI configuration
+  * Bump compat level to 12
+  * Update symbols
+
+ -- Balint Reczey <rbalint@ubuntu.com>  Sat, 12 Oct 2019 22:58:10 +0200
+
+p8-platform (2.1.0.1+dfsg1-2) unstable; urgency=medium
+
+  * Update symbols to build with GCC8 (Closes: #897831)
+  * Move packaging to Salsa
+  * Use my @ubuntu.com email address in Maintainer field
+  * Change priority from extra to optional conforming to Policy change
+
+ -- Balint Reczey <rbalint@ubuntu.com>  Sun, 29 Jul 2018 12:13:31 +0800
+
+p8-platform (2.1.0.1+dfsg1-1) unstable; urgency=medium
+
+  * Fix FTBFS on kfreebsd and hurd (Closes: 837447)
+  * Drop trailing slash from excluded file's name
+  * Imported Upstream version 2.1.0.1+dfsg1
+  * Refresh patches
+  * Use secure URI in Vcs-Git
+
+ -- Balint Reczey <balint@balintreczey.hu>  Sat, 17 Dec 2016 10:15:49 +0100
+
+p8-platform (2.0.1+dfsg1-2) unstable; urgency=medium
+
+  * Update .symbols file for GCC 6 (Closes: #831095)
+  * Bump policy version
+
+ -- Balint Reczey <balint@balintreczey.hu>  Mon, 01 Aug 2016 21:44:40 +0200
+
+p8-platform (2.0.1+dfsg1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Changing package names to adapt to new upstream name: p8-platform
+  * Drop obsoleted patch renaming library to libcec-platform
+  * Bump SO version to 2
+  * Stop using system's fstrcmp, the functionality is dropped upstream
+  * Refresh atomics and pkgconfig patches
+  * Fix SO versioning
+  * Update symbols file
+  * Drop fstrcmp-related files from debian/copyright
+  * Reformat debian/control using cme fix
+  * Use HTTPS for Vcs browsing URL
+
+ -- Balint Reczey <balint@balintreczey.hu>  Mon, 22 Feb 2016 22:04:26 +0100
+
+libcec-platform (1.0.10+dfsg1-8) unstable; urgency=medium
+
+  * Always use system's builtin atomic operations
+  * Add symbols appearing on arm64
+
+ -- Balint Reczey <balint@balintreczey.hu>  Wed, 23 Dec 2015 21:43:04 +0100
+
+libcec-platform (1.0.10+dfsg1-7) unstable; urgency=medium
+
+  * Change name to libcec-platform in pkg-config, too
+  * Fix library path in pkgconfig configuration file
+
+ -- Balint Reczey <balint@balintreczey.hu>  Thu, 20 Aug 2015 12:00:40 +0200
+
+libcec-platform (1.0.10+dfsg1-6) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Balint Reczey <balint@balintreczey.hu>  Thu, 06 Aug 2015 18:00:13 +0200
+
+libcec-platform (1.0.10+dfsg1-5) experimental; urgency=medium
+
+  * Add versioned g++ build dependency to help GCC 5 transition
+  * Update symbols file for GCC 5 transition
+  * Rename library package for the GCC 5 transition
+
+ -- Balint Reczey <balint@balintreczey.hu>  Mon, 03 Aug 2015 23:00:11 +0200
+
+libcec-platform (1.0.10+dfsg1-4) unstable; urgency=medium
+
+  * Make -dev package depend on libfstrcmp-dev
+
+ -- Balint Reczey <balint@balintreczey.hu>  Thu, 30 Jul 2015 10:53:03 +0200
+
+libcec-platform (1.0.10+dfsg1-2) unstable; urgency=medium
+
+  * Update symbols file based on i386 build
+  * Update symbols file based on arm64 build
+
+ -- Balint Reczey <balint@balintreczey.hu>  Wed, 29 Jul 2015 00:28:11 +0200
+
+libcec-platform (1.0.10+dfsg1-1) unstable; urgency=medium
+
+  * Remove changelog.in
+  * Update debian/copyright
+  * Add watch file
+  * Covert package to being non-native
+  * Bump compat level to 9
+  * Bump standards version
+  * Use system's fstrcmp()
+  * Rename library to cec-platform to use a less generic name
+  * Add misc:Depends to libcec-platform1
+  * Upload to Debian (Closes: #793329)
+  * Use more conventional calling of cmake in debian/rules
+  * Move pkgconfig and cmake config file to multiarch location
+  * Don't duplicate Section in libcec-platform1
+  * Add homepage
+  * Add symbols file
+
+ -- Balint Reczey <balint@balintreczey.hu>  Wed, 22 Jul 2015 20:51:47 +0200
+
+platform (1.0.10-1~trusty) trusty; urgency=medium
+
+  * fixed: posix socket return value for connect
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Tue, 30 Jun 2015 10:53:06 +0100
+
+platform (1.0.9-1~trusty) trusty; urgency=medium
+
+  * fixed: add missing stdio.h include in windows/os-socket.h
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Wed, 13 May 2015 10:01:43 +0100
+
+platform (1.0.8-1~trusty) trusty; urgency=medium
+
+  * added: cdevsocket.h character device socket
+  * fixed: guards for #defines on OS X and iOS for values already defined in
+    CFPlugInCOM.h
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Mon, 11 May 2015 09:33:17 +0100
+
+platform (1.0.7-1~trusty) trusty; urgency=medium
+
+  * fixed: include on OS X
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Fri, 08 May 2015 22:15:23 +0100
+
+platform (1.0.6-1~trusty) trusty; urgency=medium
+
+  * fixed: add include path and link the threads lib
+  * (re-)added: public Reset() function in CEvent
+  * sync UseMultiArch.cmake
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Thu, 07 May 2015 21:20:00 +0100
+
+platform (1.0.5-1~trusty) trusty; urgency=medium
+
+  * fixed: missing #include <string> in socket.h
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Mon, 04 May 2015 01:29:00 +0100
+
+platform (1.0.4-1~trusty) trusty; urgency=medium
+
+  * proper platform.pc.in fix
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Sun, 03 May 2015 21:56:00 +0100
+
+platform (1.0.3-1~trusty) trusty; urgency=medium
+
+  * platform.pc.in fix
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Fri, 01 May 2015 14:38:00 +0100
+
+platform (1.0.2-1~trusty) trusty; urgency=medium
+
+  * Build fixes
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Fri, 01 May 2015 01:38:00 +0100
+
+platform (1.0.0-1~trusty) trusty; urgency=medium
+
+  * Initial release
+
+ -- Pulse-Eight Packaging <packaging@pulse-eight.com>  Thu, 12 Mar 2015 13:35:07 +0100
+

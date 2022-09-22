@@ -1,0 +1,46 @@
+Description: Always use system's builtin atomic operations
+ .
+Author: Balint Reczey <balint@balintreczey.hu>
+Forwarded: not-needed
+--- a/src/threads/atomics.h
++++ b/src/threads/atomics.h
+@@ -29,7 +29,7 @@
+   ///////////////////////////////////////////////////////////////////////////
+   static inline long cas(volatile long *pAddr, long expectedVal, long swapVal)
+   {
+-#if defined(HAS_BUILTIN_SYNC_VAL_COMPARE_AND_SWAP)
++#if 1 // Always use builtin
+     return(__sync_val_compare_and_swap(pAddr, expectedVal, swapVal));
+ #elif defined(__ppc__) || defined(__powerpc__) // PowerPC
+     unsigned int prev;
+@@ -153,7 +153,7 @@
+   ///////////////////////////////////////////////////////////////////////////
+   static inline long atomic_inc(volatile long* pAddr)
+   {
+-#if defined(HAS_BUILTIN_SYNC_ADD_AND_FETCH)
++#if 1 // Always use builtin
+     return __sync_add_and_fetch(pAddr, 1);
+ 
+ #elif defined(__ppc__) || defined(__powerpc__) // PowerPC
+@@ -309,7 +309,7 @@
+   ///////////////////////////////////////////////////////////////////////////
+   static inline long atomic_add(volatile long* pAddr, long amount)
+   {
+-#if defined(HAS_BUILTIN_SYNC_ADD_AND_FETCH)
++#if 1 // Always use builtin
+     return __sync_add_and_fetch(pAddr, amount);
+ 
+ #elif defined(__ppc__) || defined(__powerpc__) // PowerPC
+--- a/src/util/atomic.h
++++ b/src/util/atomic.h
+@@ -29,8 +29,8 @@
+ ///////////////////////////////////////////////////////////////////////////
+ static inline long atomic_inc(volatile long* pAddr)
+ {
+-#if defined(HAS_BUILTIN_SYNC_ADD_AND_FETCH)
+-  return __sync_add_and_fetch(pAddr, 1);
++#if 1 // Always use builtin
++  return __sync_add_and_fetch(pAddr, 1);OA
+ 
+ #elif defined(__ppc__) || defined(__powerpc__) // PowerPC
+   long val;

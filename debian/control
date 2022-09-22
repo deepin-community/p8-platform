@@ -1,0 +1,39 @@
+Source: p8-platform
+Maintainer: Lars Op den Kamp <lars.opdenkamp@pulse-eight.com>
+Uploaders: Balint Reczey <rbalint@ubuntu.com>
+Section: libs
+Priority: optional
+Build-Depends: debhelper-compat (= 12),
+               cmake
+Standards-Version: 3.9.8
+Vcs-Browser: https://salsa.debian.org/debian/p8-platform
+Vcs-Git: https://salsa.debian.org/debian/p8-platform.git -b master
+Homepage: https://github.com/Pulse-Eight/platform
+
+Package: libp8-platform-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libp8-platform2 (= ${binary:Version}),
+         ${misc:Depends},
+         libfstrcmp-dev,
+Provides: libp8-platform-dev
+Description: Pulse-Eight's platform support library -- development files
+ Platform support library of Pulse-Eight. It includes C++ wrappers for
+ platform-specific atomic operations, threading, sockets and also
+ string utilities.
+ .
+ This package provides the necessary files needed for development.
+
+Package: libp8-platform2
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Breaks: libp8-platform2v4
+Provides: libp8-platform
+Replaces: libp8-platform2v4
+Description: Pulse-Eight's platform support library
+ Platform support library of Pulse-Eight. It includes C++ wrappers for
+ platform-specific atomic operations, threading, sockets and also
+ string utilities.
